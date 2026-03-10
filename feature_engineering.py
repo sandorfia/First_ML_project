@@ -73,11 +73,15 @@ def create_features(df):
     print(f"\nTarget variable distribution:\n{df['Music effects'].value_counts()}")
     return df
 
-
-if __name__ == "__main__":
+def run_pipeline():
+    """Run the full feature engineering pipeline."""
     df = load_data()
     df = clean_data(df)
     df = encode_frequencies(df)
     df = encode_categoricals(df)
     df = create_features(df)
-    print(df[['mental_health_score', 'age_group', 'music_engagement', 'Music effects']].head(10))
+    return df
+
+if __name__ == "__main__":
+    df = run_pipeline()
+    print(df.head())
