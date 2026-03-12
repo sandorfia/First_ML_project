@@ -3,7 +3,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 
-df = pd.read_csv('data/mxmh_survey_results.csv')
+df = pd.read_csv('First_ML_project/data/mxmh_survey_results.csv')
 
 numerical_df = df.select_dtypes(include=['float64', 'int64'])
 
@@ -24,6 +24,3 @@ mse = mean_squared_error(y_test, predictions)
 print("Training finished successfully!")
 print(f"Mean Squared Error on Test Set: {mse:.2f}")
 
-print("\nFeature Importances:")
-for feature, importance in zip(X.columns, model.feature_importances_):
-    print(f"- {feature:15}: {importance:.3f}")
